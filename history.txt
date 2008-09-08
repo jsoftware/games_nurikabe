@@ -1,4 +1,7 @@
 games/nurikabe - change history
 
+== 1.0.1 ==
+ * improve hint
+
 == 1.0.0 ==
  * created

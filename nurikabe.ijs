@@ -516,6 +516,22 @@ p=. (i.$y) e. (<"1 (I.b),.b#i){t
 (p*x) + y*-.p
 )
 
+NB. apply heuristics and pick a cell that can be colored
+NB. the result is (i,j,COLOR), or '' if no hints are available
+hint=: 3 : 0
+ if. -. y -: h=. h2far          y do. h ijv y~:h return. end.
+ if. -. y -: h=. hnbr           y do. h ijv y~:h return. end.
+ if. -. y -: h=. h22            y do. h ijv y~:h return. end.
+ if. -. y -: h=. h2ell          y do. h ijv y~:h return. end.
+ if. -. y -: h=. hwhiteislands  y do. h ijv y~:h return. end.
+ if. -. y -: h=. BLACK hboxedin y do. h ijv y~:h return. end.
+ if. -. y -: h=. WHITE hboxedin y do. h ijv y~:h return. end.
+ ''
+)
+
+ijv=: 4 : '(, x {~ <) ($y) #: (?@# { ]) I.,y'
+                    NB. (row,column,value) in x of a cell having value 1 in boolean y
+
 
 NB. newboard
 
@@ -813,13 +829,25 @@ end.
 wd 'pn *Nurikabe ',name,(}.;'x'&,each ":each SHAPE),file
 )
 
+NB. NB. =========================================================
+NB. nk_hint_button=: 3 : 0
+NB. board=. ,heuristics SHAPE$BOARD
+NB. ndx=. I. board ~: BOARD
+NB. if. #ndx do.
+NB.   ndx=. (?@# { ]) ndx
+NB.   BOARD=: (ndx{board) ndx} BOARD
+NB.   buffer''
+NB.   draw''
+NB. else.
+NB.   info 'No hint available.'
+NB. end.
+NB. )
+
 NB. =========================================================
 nk_hint_button=: 3 : 0
-board=. ,heuristics SHAPE$BOARD
-ndx=. I. board ~: BOARD
-if. #ndx do.
-  ndx=. (?@# { ]) ndx
-  BOARD=: (ndx{board) ndx} BOARD
+sel=. hint SHAPE$BOARD
+if. #sel do.
+  BOARD=: (2{sel) (<SHAPE #. 2{.sel)} BOARD
   buffer''
   draw''
 else.
