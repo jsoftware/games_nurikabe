@@ -7,14 +7,14 @@ init=: + FREE*0=]
 see=: 3 : 'y { _1|.(":&.>1+i.>./,y),<"0 ''?X '''
 
 connect=: 3 : 0     NB. connection matrix for Nurikabe
-b=. WHITE<:y
-i=. I., (}.=}:) b
-j=. I., 0,.~(}."1 = }:"1) b
+s=. WHITE<.y
+i=. I., (}.=}:) s
+j=. I., 0,.~(}."1 = }:"1) s
 (+.|:) 1 (<"1 (i+/0,{:$y),j+/0 1)}=i.*/$y
 )
 
 tc=: +./ .*~^:(>.@(2&^.)@#)
-NB. transitive closure
+NB. transitive closure of a reflexive graph
 
 islands=: ~. @ (<@I."1"_) @ tc @ connect
 NB. connected components
@@ -56,12 +56,10 @@ t=. ($y) $"1 (t*-.b) +"1 b #^:_1"1 ((i.n) e."1 m comb n){BLACK,WHITE
 t {~ (check :: 0:"2 i. 1:) t
 )
 
-heuristics=: (WHITE&hboxedin) @ (BLACK&hboxedin) @ hwhiteislands @ h2ell @ h22 ^:_ @ hnbr @ h2far
+heuristics=: hendgame @ (hislands @ h2ell @ h22 ^:_) @ h2far
 
 bfh=: bf @ heuristics @ init
 NB. brute force with heuristics
-
-NB. Heuristics
 
 h2far=: 3 : 0       NB. set to black cells too far from a numbered cell
 i=. ($y)#:I.,_2=y
@@ -73,11 +71,6 @@ p=. (i.$y) e. ($y)#.b#i
 
 neighborhood=: 3 3 ,;._3 [,.([,],[),.[
 NB. neighborhood of each atom in y, bordering y by x
-
-hnbr=: 3 : 0        NB. set to black cells with >1 numbered neighbors
-p=. 2 3 e.~ (0 neighborhood 0<y) +/ .* 9$0 1
-(p*BLACK) + y*-.p
-)
 
 h22=: 3 : 0         NB. set to white the free cell of a 2x2 block with 3 black cells
 p=. (FREE=y) *. +./"1 (=i.4) e.~ (,/2 2 ,;._3 i.3 3) {"2 1 (BLACK,FREE) i. WHITE neighborhood y
@@ -98,38 +91,45 @@ p=. (i.$y) e. i+j
 )
 
 NB. set to black neighbors of complete white islands
+NB. set to white the only free neighbor of an incomplete white island surrounded by blacks
+NB. set to black the only free neighbor of a black island, if there is more than one black island
+NB. set to black a free cell neighboring >1 numbered white islands
+NB. set to x cells of a free island surrounded by x cells
 
-hwhiteislands=: 3 : 0
-c=. (#~ (# = +/@({&(,y)))&>) islands y
-p=. (WHITE>y) *. (i.$y) e. ,(;c){1 3 5 7 {"1 ,/_1 neighborhood i.$y
-(p*BLACK) + y*-.p
+hislands=: 3 : 0
+N=. 1 3 5 7 {"1 ,/_1 neighborhood i.$y  NB. neighbors for each cell
+t=. islands y                           NB. islands
+c=. t{&.><,y                            NB. corresp. colors
+n=. (t ,@:{&.> <N) ~.@-.&.> _1,&.>t     NB. neighbors of each island
+d=. n{&.><,y                            NB. corresp. colors
+s=. (#&>c) (= * 0<]) +/&>c              NB. for white islands, 1 iff complete
+y=. BLACK i"_} y [ i=. ;p#n [ p=. w * s [ w=. WHITE<:{.&>c
+y=. WHITE i"_} y [ i=. ((p#d)i.&>FREE){&>p#n [ p=. w * s < (FREE e.&>d) * (<:#&>d)=+/@(BLACK&=)&>d
+y=. BLACK i"_} y [ i=. ((p#d)i.&>FREE){&>p#n [ p=. (1=+/@(FREE&=)&>d) (* * 1<+/@]) BLACK={.&>c
+y=. BLACK i"_} y [ i=. (I.FREE=,y) (e.#[) (-.@~: # ]) ;n#~0<+/&>c
+y=. BLACK i"_} y [ i=. ; t #~ f * */@(BLACK&=)&>d [ f=. FREE={.&>c
+y=. WHITE i"_} y [ i=. ; t #~ f * WHITE=<./&>d
 )
 
-NB. x is BLACK or WHITE
-NB. set to x the free neighbor of an x cell whose other neighbors are not x
-NB. assumes that neighbors of complete white islands are already black
+NB. set to black all free cells if no white cells are left
+NB. set to white all free cells if # missing white cells equals # free cells
 
-hboxedin=: 4 : 0
-nx=. (WHITE,BLACK){~(BLACK,WHITE)i.x
-t=. 1 3 5 7 {"1 ,/ _1 neighborhood i.$y
-i=. ((=i.4){nx,FREE) i. ((*,y-x)e. 0,x=WHITE)*t{WHITE<.(,y),nx
-b=. 4>i
-p=. (i.$y) e. (<"1 (I.b),.b#i){t
-(p*x) + y*-.p
+hendgame=: 3 : 0
+c=. wf y
+(p*i{BLACK,WHITE,FREE) + y*-.p=. (FREE=y)*2>i=. ((0={.c),=/c)i.1
 )
 
 NB. apply heuristics and pick a cell that can be colored
 NB. the result is (i,j,COLOR), or '' if no hints are available
+
 hint=: 3 : 0
- if. -. y -: h=. h2far          y do. h ijv y~:h return. end.
- if. -. y -: h=. hnbr           y do. h ijv y~:h return. end.
- if. -. y -: h=. h22            y do. h ijv y~:h return. end.
- if. -. y -: h=. h2ell          y do. h ijv y~:h return. end.
- if. -. y -: h=. hwhiteislands  y do. h ijv y~:h return. end.
- if. -. y -: h=. BLACK hboxedin y do. h ijv y~:h return. end.
- if. -. y -: h=. WHITE hboxedin y do. h ijv y~:h return. end.
- ''
+if. -. y -: h=. h2far y do. h ijv y~:h return. end.
+if. -. y -: h=. h22 y do. h ijv y~:h return. end.
+if. -. y -: h=. h2ell y do. h ijv y~:h return. end.
+if. -. y -: h=. hislands y do. h ijv y~:h return. end.
+if. -. y -: h=. hendgame y do. h ijv y~:h return. end.
+''
 )
 
 ijv=: 4 : '(, x {~ <) ($y) #: (?@# { ]) I.,y'
-                    NB. (row,column,value) in x of a cell having value 1 in boolean y
+NB. (row,column,value) in x of a cell having value 1 in boolean y
