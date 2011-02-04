@@ -1,3 +1,3 @@
 NB. build
 
-writesourcex_jp_ '~Addons/games/nurikabe';'~Addons/games/nurikabe/nurikabe.ijs'
+writesource_jp_ '~Addons/games/nurikabe';'~Addons/games/nurikabe/nurikabe.ijs'
