@@ -1,7 +1,14 @@
 NB. init
 
-script_z_ '~system/main/files.ijs'
-script_z_ '~system/main/gl2.ijs'
+3 : 0''
+if. IFJ6 do.
+  script_z_ '~system/main/files.ijs'
+  script_z_ '~system/main/gl2.ijs'
+else.
+  require 'gui/gtkwd'
+end.
+''
+)
 
 coclass 'pnurikabe'
 NB. init
@@ -751,12 +758,12 @@ if. HWNDP=0 do.
   wd NK
   HWNDP=: 0 ". wd 'qhwndp'
 end.
+wd 'pshow;'
 drawsetedit {.y,0
 nk_fit''
 nk_name''
 drawit''
 wd 'setfocus g'
-wd 'pshow;'
 )
 
 NB. =========================================================

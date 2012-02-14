@@ -56,12 +56,12 @@ if. HWNDP=0 do.
   wd NK
   HWNDP=: 0 ". wd 'qhwndp'
 end.
+wd 'pshow;'
 drawsetedit {.y,0
 nk_fit''
 nk_name''
 drawit''
 wd 'setfocus g'
-wd 'pshow;'
 )
 
 NB. =========================================================

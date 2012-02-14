@@ -1,5 +1,8 @@
 games/nurikabe - change history
 
+== 1.0.3 ==
+ * released for j701 (gtkwd)
+
 == 1.0.1/2 ==
  * improve hints
 
