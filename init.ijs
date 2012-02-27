@@ -5,7 +5,7 @@ if. IFJ6 do.
   script_z_ '~system/main/files.ijs'
   script_z_ '~system/main/gl2.ijs'
 else.
-  require 'gui/gtkwd'
+  require 'gtkwd'
 end.
 ''
 )
