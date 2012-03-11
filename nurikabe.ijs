@@ -934,7 +934,7 @@ FILE=: file
 NAME=: name
 CARET=: ''
 nk_run 0
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 
 NB. =========================================================
