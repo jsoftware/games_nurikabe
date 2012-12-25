@@ -1,5 +1,8 @@
 games/nurikabe - change history
 
+== 1.0.6 ==
+ * cover verb for wd query cmds
+
 == 1.0.3/5 ==
  * released for j701 (gtkwd)
 

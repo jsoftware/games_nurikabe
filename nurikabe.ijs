@@ -756,7 +756,7 @@ DONE=: 0
 HIGH=: _1
 if. HWNDP=0 do.
   wd NK
-  HWNDP=: 0 ". wd 'qhwndp'
+  HWNDP=: wdqhwndp''
 end.
 wd^:(-.IFJ6) 'pshow;pshow sw_hide'
 drawsetedit {.y,0
@@ -788,9 +788,9 @@ NB. =========================================================
 NB. try to fit in part of available screen
 NB. if edge is > 10, scale up to near full screen
 nk_fit=: 3 : 0
-formx=. 0 ". wd 'qformx'
-gx=. 0 ". wd 'qchildxywhx g'
-swh=. 2 {. 0 ". wd 'qm'
+formx=. wdqformx''
+gx=. wdqchildxywhx 'g'
+swh=. 2 {. wdqm''
 cr=. |. SHAPE
 if. *./ 10 >: cr do.
   siz=. cr * <./ <. 0.5 * swh % cr
