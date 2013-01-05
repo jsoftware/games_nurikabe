@@ -1,5 +1,8 @@
 games/nurikabe - change history
 
+== 1.0.7 ==
+ * qt
+
 == 1.0.6 ==
  * cover verb for wd query cmds
 

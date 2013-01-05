@@ -44,6 +44,53 @@ pas 0 0;pcenter;
 rem form end;
 )
 
+NKQT=: 0 : 0
+pc nk qtwd;pn "Nurikabe";
+menupop "File";
+menu newboard "&New..." "Ctrl+N" "" "";
+menusep;
+menu openboard "&Open..." "Ctrl+O" "" "";
+menusep ;
+menu saveboard "Save" "Ctrl+S" "" "";
+menu saveboardas "Save &As..." "" "" "";
+menusep;
+menu exit "Exit" "" "" "";
+menupopz;
+menupop "Demos";
+menu board1 "&Board1 5x5" "" "" "";
+menu board2 "&Board2 5x5" "" "" "";
+menu board3 "&Board3 5x5" "" "" "";
+menu board4 "&Board4 5x5" "" "" "";
+menu board5 "&Board5 5x5" "" "" "";
+menusep;
+menu board6 "&Board6 9x9" "" "" "";
+menu board7 "&Board7 9x9" "" "" "";
+menusep;
+menu board8 "&Board8 10x10" "" "" "";
+menusep;
+menu board9 "&Board9 10x18" "" "" "";
+menupopz;
+menupop "Help";
+menu about "&About" "" "" "";
+menusep;
+menu helpnew "&New Board" "" "" "";
+menupopz;
+bin vh;
+xywh 2 1 39 12;cc restart button;cn "Restart";
+xywh 41 1 39 12;cc undo button;cn "Undo";
+xywh 80 1 39 12;cc redo button;cn "Redo";
+xywh 119 1 39 12;cc hint button;cn "Hint";
+xywh 158 1 39 12;cc check button;cn "Check";
+xywh 2 1 39 12;cc editcancel button;cn "Cancel";
+xywh 41 1 39 12;cc editok button;cn "Accept";
+bin z;
+xywh 0 14 250 1;cc s0 staticbox ss_etchedhorz rightmove;
+xywh 0 15 250 250;cc g isigraph rightmove bottommove;
+bin z;
+pas 0 0;pcenter;
+rem form end;
+)
+
 NB. not yet...
 NB. menu solve "Solve" "" "" "";
 
@@ -53,7 +100,7 @@ bufinit''
 DONE=: 0
 HIGH=: _1
 if. HWNDP=0 do.
-  wd NK
+  wd IFQT{::NK;NKQT
   HWNDP=: wdqhwndp''
 end.
 wd^:(-.IFJ6) 'pshow;pshow sw_hide'
