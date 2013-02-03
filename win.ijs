@@ -103,7 +103,7 @@ if. HWNDP=0 do.
   wd IFQT{::NK;NKQT
   HWNDP=: wdqhwndp''
 end.
-wd^:(-.IFJ6) 'pshow;pshow sw_hide'
+wd 'pshow;pshow sw_hide'
 drawsetedit {.y,0
 nk_fit''
 nk_name''

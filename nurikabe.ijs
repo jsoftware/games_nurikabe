@@ -1,15 +1,5 @@
 NB. init
 
-3 : 0''
-if. IFJ6 do.
-  script_z_ '~system/main/files.ijs'
-  script_z_ '~system/main/gl2.ijs'
-else.
-  require 'gtkwd'
-end.
-''
-)
-
 coclass 'pnurikabe'
 NB. init
 
@@ -805,7 +795,7 @@ if. HWNDP=0 do.
   wd IFQT{::NK;NKQT
   HWNDP=: wdqhwndp''
 end.
-wd^:(-.IFJ6) 'pshow;pshow sw_hide'
+wd 'pshow;pshow sw_hide'
 drawsetedit {.y,0
 nk_fit''
 nk_name''
@@ -981,7 +971,7 @@ FILE=: file
 NAME=: name
 CARET=: ''
 nk_run 0
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 NB. =========================================================

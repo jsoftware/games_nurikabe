@@ -1,5 +1,8 @@
 games/nurikabe - change history
 
+== 1.0.8 ==
+ * j801
+
 == 1.0.7 ==
  * qt
 

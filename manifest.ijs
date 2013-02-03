@@ -6,10 +6,10 @@ DESCRIPTION=: 0 : 0
 Nurikabe puzzle, see wiki Essays/Nurikabe.
 )
 
-VERSION=: '1.0.7'
+VERSION=: '1.0.8'
 
 FILES=: 0 : 0
 nurikabe.ijs
 )
 
-RELEASE=: 'j602 j701'
+RELEASE=: 'j701 j801'

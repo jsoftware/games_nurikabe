@@ -32,7 +32,7 @@ FILE=: file
 NAME=: name
 CARET=: ''
 nk_run 0
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 NB. =========================================================
