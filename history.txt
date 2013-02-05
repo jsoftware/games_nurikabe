@@ -1,6 +1,6 @@
 games/nurikabe - change history
 
-== 1.0.8 ==
+== 1.0.8/9 ==
  * j801
 
 == 1.0.7 ==

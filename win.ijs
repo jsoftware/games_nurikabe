@@ -143,10 +143,8 @@ else.
   siz=. cr * (<./ <. 0.5 * swh % 10) <. <./ <. 0.85 * swh % cr
 end.
 del=. 1 + siz - _2 {. gx
-if. -. IFJAVA do.
-  wd 'setxywhx g ',":gx + 0 0,del
-end.
-wd 'pmovex ',":formx + 0 0,del+5*IFJAVA
+wd 'setxywhx g ',":gx + 0 0,del
+wd 'pmovex ',":formx + 0 0,del
 wd 'pcenter'
 )
 
