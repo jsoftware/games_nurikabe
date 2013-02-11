@@ -84,7 +84,6 @@ xywh 158 1 39 12;cc check button;cn "Check";
 xywh 2 1 39 12;cc editcancel button;cn "Cancel";
 xywh 41 1 39 12;cc editok button;cn "Accept";
 bin z;
-xywh 0 14 250 1;cc s0 staticbox ss_etchedhorz rightmove;
 xywh 0 15 250 250;cc g isigraph rightmove bottommove;
 bin z;
 pas 0 0;pcenter;
