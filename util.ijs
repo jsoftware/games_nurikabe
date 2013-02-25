@@ -9,7 +9,7 @@ gethit=: 3 : 'POS inrect 2 {. 0 ". sysdata'
 info=: wdinfo @ ('Nurikabe'&;)
 ischar=: 3!:0 e. 2 131072"_
 pathname=: 3 : '(b#y);(-.b=.+./\.y=PATHSEP_j_)#y'
-query=: wdquery 'Nurikabe'&;
+query=: wdquery @ ('Nurikabe'&;)
 quote=: ''''&,@(,&'''')@(#~ >:@(=&''''))
 
 NB. =========================================================
