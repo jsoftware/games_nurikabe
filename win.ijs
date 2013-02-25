@@ -193,7 +193,7 @@ draw''
 
 NB. =========================================================
 nk_restart_button=: 3 : 0
-if. 0 = 2 query 'OK to restart?' do.
+if. 0 = query 'OK to restart?' do.
   BOARD=: 0 pick BUF
   bufinit ''
   draw''

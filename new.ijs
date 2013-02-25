@@ -48,14 +48,14 @@ nk_run 1
 
 NB. =========================================================
 newboardcancel=: 3 : 0
-if. 2 query 'OK to cancel edit?' do. return. end.
+if. query 'OK to cancel edit?' do. return. end.
 'BOARD SHAPE NAME FILE'=: OLDBOARD
 nk_run 0
 )
 
 NB. =========================================================
 newboardok=: 3 : 0
-if. 2 query 'OK to accept board?' do. return. end.
+if. query 'OK to accept board?' do. return. end.
 BOARD=: init BOARD
 nk_run 0
 )

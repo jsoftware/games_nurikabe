@@ -26,7 +26,7 @@ while. 1 do.
   if. 0=fexist fn do. return. end.
   j=. fn,LF,'This file already exists.',LF,LF
   msg=. j,'Replace existing file?'
-  if. 0=2 query msg do. fn return. end.
+  if. 0= query msg do. fn return. end.
 end.
 )
 

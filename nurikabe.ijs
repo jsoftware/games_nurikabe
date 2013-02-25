@@ -298,7 +298,7 @@ while. 1 do.
   if. 0=fexist fn do. return. end.
   j=. fn,LF,'This file already exists.',LF,LF
   msg=. j,'Replace existing file?'
-  if. 0=2 query msg do. fn return. end.
+  if. 0= query msg do. fn return. end.
 end.
 )
 
@@ -566,14 +566,14 @@ nk_run 1
 
 NB. =========================================================
 newboardcancel=: 3 : 0
-if. 2 query 'OK to cancel edit?' do. return. end.
+if. query 'OK to cancel edit?' do. return. end.
 'BOARD SHAPE NAME FILE'=: OLDBOARD
 nk_run 0
 )
 
 NB. =========================================================
 newboardok=: 3 : 0
-if. 2 query 'OK to accept board?' do. return. end.
+if. query 'OK to accept board?' do. return. end.
 BOARD=: init BOARD
 nk_run 0
 )
@@ -885,7 +885,7 @@ draw''
 
 NB. =========================================================
 nk_restart_button=: 3 : 0
-if. 0 = 2 query 'OK to restart?' do.
+if. 0 = query 'OK to restart?' do.
   BOARD=: 0 pick BUF
   bufinit ''
   draw''
