@@ -19,7 +19,7 @@ fn=. FILE, (0=#FILE) # jpath '~temp/'
 while. 1 do.
   'p f'=. pathname fn
   j=. FTYPES
-  fn=. mbsave '"Save As" "',pn,'" ',j
+  fn=. mbsave '"Save As" "',fn,'" ',j
   if. 0=#fn do. return. end.
   if. -. '.' e. fn do. fn=. fn,'.nkb' end.
   if. fn -: FILE do. return. end.
