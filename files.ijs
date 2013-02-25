@@ -1,6 +1,6 @@
 NB. files
 
-FTYPES=: '"Nuikabe (*.nkb)|*.nkb|All Files (*.*)|*.*"'
+FTYPES=: '"Nuikabe (*.nkb);;All Files (*.*)"'
 
 NB. =========================================================
 getboard=: 3 : 0
@@ -18,8 +18,8 @@ getsaveas=: 3 : 0
 fn=. FILE, (0=#FILE) # jpath '~temp/'
 while. 1 do.
   'p f'=. pathname fn
-  j=. FTYPES,' ofn_nochangedir'
-  fn=. wd 'mbsave "Save As" "',p,'" "',f,'" ',j
+  j=. FTYPES
+  fn=. mbsave '"Save As" "',pn,'" ',j
   if. 0=#fn do. return. end.
   if. -. '.' e. fn do. fn=. fn,'.nkb' end.
   if. fn -: FILE do. return. end.
@@ -37,9 +37,9 @@ if. #FILE do.
 else.
   p=. jpath '~temp'
 end.
-j=. FTYPES,' ofn_nochangedir'
+j=. FTYPES
 while. 1 do.
-  f=. wd 'mbopen "Open File" "',p,'" "" ',j
+  f=. mbopen '"Open File" "',p,'" ',j
   if. 0 = #f do. '' return. end.
   if. -. fexist f do.
     f=. f,(-. '.' e. f)#'.nkb'
