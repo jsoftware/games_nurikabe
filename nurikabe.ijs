@@ -272,7 +272,7 @@ gltext txt
 )
 NB. files
 
-FTYPES=: '"Nuikabe (*.nkb);;All Files (*.*)"'
+FTYPES=: '"Nuikabe (*.nkb)|All Files (*.*)"'
 
 NB. =========================================================
 getboard=: 3 : 0
