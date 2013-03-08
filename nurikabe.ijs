@@ -737,7 +737,7 @@ rem form end;
 )
 
 NKQT=: 0 : 0
-pc nk qtwd;pn "Nurikabe";
+pc nk;pn "Nurikabe";
 menupop "File";
 menu newboard "&New..." "Ctrl+N" "" "";
 menusep;
