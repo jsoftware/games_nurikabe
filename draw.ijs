@@ -67,17 +67,17 @@ if. DONE < HIGH >:0 do.
 end.
 if. EDIT do. return. end.
 if. DONE do.
-  wd 'setenable undo 0'
-  wd 'setenable redo 0'
-  wd 'setenable hint 0'
-  wd 'setenable check 0'
+  wd 'set undo enable 0'
+  wd 'set redo enable 0'
+  wd 'set hint enable 0'
+  wd 'set check enable 0'
 else.
   len=. #BUF
-  wd 'setenable restart ',":len > 1
-  wd 'setenable undo ',":BUFPOS > 0
-  wd 'setenable redo ',":BUFPOS < len-1
-  wd 'setenable hint 1'
-  wd 'setenable check 1'
+  wd 'set restart enable ',":len > 1
+  wd 'set undo enable ',":BUFPOS > 0
+  wd 'set redo enable ',":BUFPOS < len-1
+  wd 'set hint enable 1'
+  wd 'set check enable 1'
 end.
 )
 

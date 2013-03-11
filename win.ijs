@@ -31,60 +31,16 @@ menu about "&About" "" "" "";
 menusep;
 menu helpnew "&New Board" "" "" "";
 menupopz;
-xywh 2 1 39 12;cc restart button;cn "Restart";
-xywh 41 1 39 12;cc undo button;cn "Undo";
-xywh 80 1 39 12;cc redo button;cn "Redo";
-xywh 119 1 39 12;cc hint button;cn "Hint";
-xywh 158 1 39 12;cc check button;cn "Check";
-xywh 2 1 39 12;cc editcancel button;cn "Cancel";
-xywh 41 1 39 12;cc editok button;cn "Accept";
-xywh 0 14 250 1;cc s0 staticbox ss_etchedhorz rightmove;
-xywh 0 15 250 250;cc g isigraph rightmove bottommove;
-pas 0 0;pcenter;
-rem form end;
-)
-
-NKQT=: 0 : 0
-pc nk;pn "Nurikabe";
-menupop "File";
-menu newboard "&New..." "Ctrl+N" "" "";
-menusep;
-menu openboard "&Open..." "Ctrl+O" "" "";
-menusep ;
-menu saveboard "Save" "Ctrl+S" "" "";
-menu saveboardas "Save &As..." "" "" "";
-menusep;
-menu exit "Exit" "" "" "";
-menupopz;
-menupop "Demos";
-menu board1 "&Board1 5x5" "" "" "";
-menu board2 "&Board2 5x5" "" "" "";
-menu board3 "&Board3 5x5" "" "" "";
-menu board4 "&Board4 5x5" "" "" "";
-menu board5 "&Board5 5x5" "" "" "";
-menusep;
-menu board6 "&Board6 9x9" "" "" "";
-menu board7 "&Board7 9x9" "" "" "";
-menusep;
-menu board8 "&Board8 10x10" "" "" "";
-menusep;
-menu board9 "&Board9 10x18" "" "" "";
-menupopz;
-menupop "Help";
-menu about "&About" "" "" "";
-menusep;
-menu helpnew "&New Board" "" "" "";
-menupopz;
 bin vh;
-xywh 2 1 39 12;cc restart button;cn "Restart";
-xywh 41 1 39 12;cc undo button;cn "Undo";
-xywh 80 1 39 12;cc redo button;cn "Redo";
-xywh 119 1 39 12;cc hint button;cn "Hint";
-xywh 158 1 39 12;cc check button;cn "Check";
-xywh 2 1 39 12;cc editcancel button;cn "Cancel";
-xywh 41 1 39 12;cc editok button;cn "Accept";
+cc restart button;cn "Restart";
+cc undo button;cn "Undo";
+cc redo button;cn "Redo";
+cc hint button;cn "Hint";
+cc check button;cn "Check";
+cc editcancel button;cn "Cancel";
+cc editok button;cn "Accept";
 bin z;
-xywh 0 15 250 250;cc g isigraph rightmove bottommove;
+wh 500 500;cc g isigraph;
 bin z;
 pas 0 0;pcenter;
 rem form end;
@@ -99,10 +55,10 @@ bufinit''
 DONE=: 0
 HIGH=: _1
 if. HWNDP=0 do.
-  wd IFQT{::NK;NKQT
+  wd NK
   HWNDP=: wdqhwndp''
 end.
-wd 'pshow;pshow sw_hide'
+NB. wd 'pshow;pshow sw_hide'
 drawsetedit {.y,0
 nk_fit''
 nk_name''
@@ -123,7 +79,7 @@ end.
 
 NB. =========================================================
 nk_close=: 3 : 0
-wd 'setenable g 0'
+wd 'set g enable 0'
 wd 'pclose'
 codestroy''
 )
