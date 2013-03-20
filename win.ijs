@@ -98,7 +98,7 @@ else.
   siz=. cr * (<./ <. 0.5 * swh % 10) <. <./ <. 0.85 * swh % cr
 end.
 del=. 1 + siz - _2 {. gx
-wd 'setxywhx g ',":gx + 0 0,del
+wd 'set g wh ',": _2{. gx + 0 0,del
 wd 'pmovex ',":formx + 0 0,del
 wd 'pcenter'
 )

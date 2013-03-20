@@ -520,15 +520,20 @@ NB. newboard
 
 NB. =========================================================
 NEW=: 0 : 0
-pc new;pn "New Board";
-xywh 10 12 31 12;cc s1 static;cn "Rows:";
-xywh 45 11 20 13;cc erows edit;
-xywh 10 28 31 12;cc s2 static;cn "Cols:";
-xywh 45 28 20 13;cc ecols edit;
-xywh 10 46 65 12;cc s0 static;cn "Name (optional):";
-xywh 76 45 120 13;cc ename edit rightmove;
-xywh 156 8 44 12;cc ok button leftmove rightmove;cn "OK";
-xywh 156 23 44 12;cc cancel button leftmove rightmove;cn "Cancel";
+pc new owner;pn "New Board";
+bin hvh;
+cc s1 static;cn "Rows:";
+cc erows edit;
+bin zh;
+cc s2 static;cn "Cols:";
+cc ecols edit;
+bin zh;
+cc s0 static;cn "Name (optional):";
+cc ename edit;
+bin zszv;
+cc ok button;cn "OK";
+cc cancel button;cn "Cancel";
+bin szz;
 pas 6 6;pcenter;
 rem form end;
 )
@@ -790,7 +795,7 @@ else.
   siz=. cr * (<./ <. 0.5 * swh % 10) <. <./ <. 0.85 * swh % cr
 end.
 del=. 1 + siz - _2 {. gx
-wd 'setxywhx g ',":gx + 0 0,del
+wd 'set g wh ',": _2{. gx + 0 0,del
 wd 'pmovex ',":formx + 0 0,del
 wd 'pcenter'
 )
