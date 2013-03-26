@@ -794,9 +794,9 @@ if. *./ 10 >: cr do.
 else.
   siz=. cr * (<./ <. 0.5 * swh % 10) <. <./ <. 0.85 * swh % cr
 end.
-del=. 1 + siz - _2 {. gx
-wd 'set g wh ',": _2{. gx + 0 0,del
-wd 'pmovex ',":formx + 0 0,del
+wd 'set g wh ',": siz
+NB. del=. 1 + siz - _2 {. gx
+NB. wd 'pmovex ',":formx + 0 0,del
 wd 'pcenter'
 )
 
