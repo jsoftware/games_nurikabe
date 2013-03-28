@@ -785,8 +785,8 @@ NB. =========================================================
 NB. try to fit in part of available screen
 NB. if edge is > 10, scale up to near full screen
 nk_fit=: 3 : 0
-formx=. wdqformx''
-gx=. wdqchildxywhx 'g'
+formx=. wdqform''
+gx=. wdqchildxywh 'g'
 swh=. 2 {. wdqm''
 cr=. |. SHAPE
 if. *./ 10 >: cr do.
@@ -796,7 +796,7 @@ else.
 end.
 wd 'set g wh ',": siz
 NB. del=. 1 + siz - _2 {. gx
-NB. wd 'pmovex ',":formx + 0 0,del
+NB. wd 'pmove ',":formx + 0 0,del
 wd 'pcenter'
 )
 
