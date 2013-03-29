@@ -184,14 +184,14 @@ if. EDIT do.
   DONE=: 0
   drawboard'' return.
 end.
-if. -.DONE do.
+if. 0=DONE do.
   DONE=: checkdone 0
 end.
 drawboard''
 if. DONE=1 do.
+  DONE=: 2
   glpaint''
   finished''
-  DONE=: 2
 end.
 )
 
