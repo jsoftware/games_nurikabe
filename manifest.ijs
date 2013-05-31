@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 Nurikabe puzzle, see wiki Essays/Nurikabe.
 )
 
-VERSION=: '1.0.20'
+VERSION=: '1.0.21'
 
 FILES=: 0 : 0
 nurikabe.ijs
