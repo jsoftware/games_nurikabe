@@ -40,7 +40,7 @@ cc check button;cn "Check";
 cc editcancel button;cn "Cancel";
 cc editok button;cn "Accept";
 bin z;
-wh 500 500;cc g isigraph;
+minwh 500 500;cc g isigraph;
 bin z;
 pas 0 0;pcenter;
 rem form end;
