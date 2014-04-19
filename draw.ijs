@@ -14,8 +14,7 @@ FONT=: IFUNIX pick 'Arial';'SansSerif'
 
 NB. =========================================================
 draw=: 3 : 0
-drawit''
-glpaint''
+glpaintx''
 )
 
 NB. =========================================================
@@ -30,7 +29,6 @@ end.
 drawboard''
 if. DONE=1 do.
   DONE=: 2
-  glpaint''
   finished''
 end.
 )
@@ -95,8 +93,8 @@ NB. draw highlight as mouse moves
 drawhigh=: 3 : 0
 if. HIGH -: y do. return. end.
 HIGH=: y
-drawboard''
-glpaint''
+NB. drawboard''
+glpaintx''
 )
 
 NB. =========================================================

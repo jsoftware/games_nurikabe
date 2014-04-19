@@ -1,11 +1,15 @@
+NB. main
+
 WHITE=: 0
 BLACK=: _1
 FREE=: _2
 
 init=: + FREE*0=]
 
+NB. =========================================================
 see=: 3 : 'y { _1|.(":&.>1+i.>./,y),<"0 ''?X '''
 
+NB. =========================================================
 connect=: 3 : 0     NB. connection matrix for Nurikabe
 s=. WHITE<.y
 i=. I., (}.=}:) s
@@ -13,12 +17,15 @@ j=. I., 0,.~(}."1 = }:"1) s
 (+.|:) 1 (<"1 (i+/0,{:$y),j+/0 1)}=i.*/$y
 )
 
+NB. =========================================================
 tc=: +./ .*~^:(>.@(2&^.)@#)
 NB. transitive closure of a reflexive graph
 
+NB. =========================================================
 islands=: ~. @ (<@I."1"_) @ tc @ connect
 NB. connected components
 
+NB. =========================================================
 check=: 3 : 0       NB. 1 iff y is a Nurikabe solution
 assert. (y e. BLACK,WHITE) +. 0<y
 assert. -. 2 2 (2 2$BLACK)&-:;._3 y

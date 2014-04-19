@@ -40,14 +40,11 @@ cc check button;cn "Check";
 cc editcancel button;cn "Cancel";
 cc editok button;cn "Accept";
 bin z;
-minwh 500 500;cc g isigraph flush;
+cc g isigraph flush;
 bin z;
 pas 0 0;pcenter;
 rem form end;
 )
-
-NB. not yet...
-NB. menu solve "Solve" "" "" "";
 
 NB. =========================================================
 nk_run=: 3 : 0
@@ -58,7 +55,6 @@ if. HWNDP=0 do.
   wd NK
   HWNDP=: wdqhwndp''
 end.
-NB. wd 'pshow;pshow sw_hide'
 drawsetedit {.y,0
 nk_fit''
 nk_name''
@@ -97,11 +93,12 @@ if. *./ 10 >: cr do.
 else.
   siz=. cr * (<./ <. 0.5 * swh % 10) <. <./ <. 0.85 * swh % cr
 end.
-wd 'set g wh ',": siz
-NB. del=. 1 + siz - _2 {. gx
-NB. wd 'pmove ',":formx + 0 0,del
+wd 'set g minwh ',": siz
 wd 'pcenter'
 )
+
+NB. =========================================================
+nk_g_paint=: drawit
 
 NB. =========================================================
 nk_name=: 3 : 0
@@ -160,8 +157,7 @@ NB. =========================================================
 nk_solve_button=: 3 : 0
 BOARD=: ,bfh SHAPE$BOARD
 DONE=: 2
-drawboard''
-glpaint''
+draw''
 )
 
 NB. =========================================================
