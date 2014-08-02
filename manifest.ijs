@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 Nurikabe puzzle, see wiki Essays/Nurikabe.
 )
 
-VERSION=: '1.0.26'
+VERSION=: '1.0.27'
 
 DEPENDS=: 0 : 0
 graphics/gl2
@@ -16,4 +16,4 @@ FILES=: 0 : 0
 nurikabe.ijs
 )
 
-RELEASE=: 'j802'
+RELEASE=: 'j802 j803'
