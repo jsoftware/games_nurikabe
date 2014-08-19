@@ -46,7 +46,7 @@ h=. 1 + (}.y,hit) - y
 POS=: (rc$x),.(c#y),.(rc$w),.c#h
 clr=. (| 0 <. BOARD){COLORS
 clr=. CARETCOLOR CARET} clr
-glpen 1 0 [ glrgb GRIDCOLOR
+glpen 1 1 [ glrgb GRIDCOLOR
 POS drawrect"1 clr
 glfont FONT,' ',":<. 0.45 * <./w,h
 ndx=. I. 0 < ,BOARD
@@ -56,10 +56,10 @@ end.
 if. DONE < HIGH >:0 do.
   glbrushnull''
   if. EDIT do.
-    glpen 2 0 [ glrgb HIGHCOLOR
+    glpen 2 1 [ glrgb HIGHCOLOR
     glrect 1 1 _2 _2 + HIGH{POS
   else.
-    glpen 1 0 [ glrgb HIGHCOLOR
+    glpen 1 1 [ glrgb HIGHCOLOR
     glrect HIGH{POS
   end.
 end.
