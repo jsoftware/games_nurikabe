@@ -759,9 +759,10 @@ end.
 drawsetedit {.y,0
 nk_fit''
 nk_name''
-drawit''
+NB. drawit''
 wd 'setfocus g'
 wd 'pshow;'
+glpaint''
 )
 
 NB. =========================================================
