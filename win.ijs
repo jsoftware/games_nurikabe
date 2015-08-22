@@ -1,5 +1,7 @@
 NB. win
 
+onCreate=: nk_run1
+
 NK=: 0 : 0
 pc nk;pn "Nurikabe";
 menupop "File";
@@ -46,8 +48,55 @@ pas 0 0;pcenter;
 rem form end;
 )
 
+NKJA=: 0 : 0
+pc nk;pn "Nurikabe";
+menupop "File";
+menu newboard "&New..." "Ctrl+N" "" "";
+menusep;
+menu openboard "&Open..." "Ctrl+O" "" "";
+menusep ;
+menu saveboard "Save" "Ctrl+S" "" "";
+menu saveboardas "Save &As..." "" "" "";
+menusep;
+menu exit "Exit" "" "" "";
+menupopz;
+menupop "Demos";
+menu board1 "&Board1 5x5" "" "" "";
+menu board2 "&Board2 5x5" "" "" "";
+menu board3 "&Board3 5x5" "" "" "";
+menu board4 "&Board4 5x5" "" "" "";
+menu board5 "&Board5 5x5" "" "" "";
+menusep;
+menu board6 "&Board6 9x9" "" "" "";
+menu board7 "&Board7 9x9" "" "" "";
+menusep;
+menu board8 "&Board8 10x10" "" "" "";
+menusep;
+menu board9 "&Board9 10x18" "" "" "";
+menupopz;
+menupop "Help";
+menu about "&About" "" "" "";
+menusep;
+menu helpnew "&New Board" "" "" "";
+menupopz;
+bin vh;
+cc restart button;cn "Restart";
+cc undo button;cn "Undo";
+cc redo button;cn "Redo";
+cc hint button;cn "Hint";
+cc check button;cn "Check";
+cc editcancel button;cn "Cancel";
+cc editok button;cn "Accept";
+bin z;
+wh _1 _1;cc g isigraph flush;
+bin z;
+pas 0 0;pcenter;
+rem form end;
+)
+
 NB. =========================================================
-nk_run=: 3 : 0
+nk_run1=: 3 : 0
+if. IFJA do. y=. yy end.
 bufinit''
 DONE=: 0
 HIGH=: _1

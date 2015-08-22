@@ -83,6 +83,7 @@ NB. =========================================================
 drawsetedit=: 3 : 0
 wd 'psel ',":HWNDP
 EDIT=: y
+if. IFJA do. return. end.
 wd ;(<';setshow '), each EDITON ,each <' ',":EDIT
 wd ;(<';setshow '), each EDITOFF ,each <' ',":-.EDIT
 wd ;(<';setenable '), each EDITENABLE ,each <' ',":-.EDIT
