@@ -711,7 +711,7 @@ end.
 
 NB. win
 
-onCreate=: nk_run1
+onStart=: nk_run1
 
 NK=: 0 : 0
 pc nk;pn "Nurikabe";
