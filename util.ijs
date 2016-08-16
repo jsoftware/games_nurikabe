@@ -7,7 +7,7 @@ finished=: info bind 'Game completed.'
 unfinished=: info bind 'Game not yet completed.'
 gethit=: 3 : 'POS inrect 2 {. 0 ". sysdata'
 info=: wdinfo @ ('Nurikabe'&;)
-ischar=: 3!:0 e. 2 131072"_
+ischar=: 3!:0 e. 2 131072 262144"_
 pathname=: 3 : '(b#y);(-.b=.+./\.''/''=jpathsep y)#y'
 query=: wdquery @ ('Nurikabe'&;)
 quote=: ''''&,@(,&'''')@(#~ >:@(=&''''))
