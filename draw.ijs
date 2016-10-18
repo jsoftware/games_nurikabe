@@ -64,7 +64,7 @@ if. DONE < HIGH >:0 do.
     glrect HIGH{POS
   end.
 end.
-glpaints^:IFJA ''
+glcmds@gltrash^:IFJA ''
 if. EDIT do. return. end.
 if. DONE do.
   wd 'set undo enable 0'
