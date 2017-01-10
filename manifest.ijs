@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 Nurikabe puzzle, see wiki Essays/Nurikabe.
 )
 
-VERSION=: '1.0.35'
+VERSION=: '1.0.36'
 
 DEPENDS=: 0 : 0
 graphics/gl2

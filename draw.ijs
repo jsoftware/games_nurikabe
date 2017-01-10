@@ -36,7 +36,6 @@ end.
 NB. =========================================================
 NB. drawboard
 drawboard=: 3 : 0
-glmark^:IFJA ''
 rc=. */'r c'=. SHAPE
 glsel 'g'
 'wid hit'=. _1 + glqwh''
@@ -64,7 +63,7 @@ if. DONE < HIGH >:0 do.
     glrect HIGH{POS
   end.
 end.
-glcmds@gltrash^:IFJA ''
+glpaintx^:IFJA ''   NB. asyncj
 if. EDIT do. return. end.
 if. DONE do.
   wd 'set undo enable 0'
