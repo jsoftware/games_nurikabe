@@ -16,4 +16,6 @@ FILES=: 0 : 0
 nurikabe.ijs
 )
 
-RELEASE=: 'j804 j805 j806 j807'
+RELEASE=: ''
+
+FOLDER=: 'games/nurikabe'
